@@ -4,6 +4,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{C7DA596C-955F-4ED0-82C8-B24D40691B37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{3489BD81-5306-47DB-BA24-D0D37F5737E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{F1F54E69-545C-4B15-B6B5-88710361A8C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6996CED4-9CCA-49C7-9E08-BC652DF3242D}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +27,13 @@ Global
 		{C7DA596C-955F-4ED0-82C8-B24D40691B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7DA596C-955F-4ED0-82C8-B24D40691B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7DA596C-955F-4ED0-82C8-B24D40691B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3489BD81-5306-47DB-BA24-D0D37F5737E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3489BD81-5306-47DB-BA24-D0D37F5737E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3489BD81-5306-47DB-BA24-D0D37F5737E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3489BD81-5306-47DB-BA24-D0D37F5737E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F54E69-545C-4B15-B6B5-88710361A8C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F54E69-545C-4B15-B6B5-88710361A8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F54E69-545C-4B15-B6B5-88710361A8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F54E69-545C-4B15-B6B5-88710361A8C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

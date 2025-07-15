@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DataAccess.Models;
+﻿namespace DataAccess.Entities;
 
 /// <summary>
 /// Seats
 /// </summary>
-public partial class Seat
+public class SeatEntity
 {
     /// <summary>
     /// Aircraft code, IATA
@@ -23,5 +20,5 @@ public partial class Seat
     /// </summary>
     public string FareConditions { get; set; } = null!;
 
-    public virtual AircraftsDatum AircraftCodeNavigation { get; set; } = null!;
+    public virtual AircraftsDatumEntity AircraftCodeNavigation { get; set; } = null!;
 }

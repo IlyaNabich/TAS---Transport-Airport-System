@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DataAccess.Models;
+﻿namespace DataAccess.Entities;
 
 /// <summary>
 /// Aircrafts (internal data)
 /// </summary>
-public partial class AircraftsDatum
+public class AircraftsDatumEntity
 {
     /// <summary>
     /// Aircraft code, IATA
@@ -23,7 +20,7 @@ public partial class AircraftsDatum
     /// </summary>
     public int Range { get; set; }
 
-    public virtual ICollection<Flight> Flights { get; set; } = new List<Flight>();
+    public virtual ICollection<FlightEntity> Flights { get; set; } = new List<FlightEntity>();
 
-    public virtual ICollection<Seat> Seats { get; set; } = new List<Seat>();
+    public virtual ICollection<SeatEntity> Seats { get; set; } = new List<SeatEntity>();
 }

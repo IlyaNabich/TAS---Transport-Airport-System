@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using NpgsqlTypes;
+﻿using NpgsqlTypes;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DataAccess.Models;
+namespace DataAccess.Entities;
 
 /// <summary>
 /// Airports (internal data)
 /// </summary>
-public partial class AirportsDatum
+public class AirportsDatumEntity
 {
     /// <summary>
     /// Airport code
@@ -33,8 +32,9 @@ public partial class AirportsDatum
     /// Airport time zone
     /// </summary>
     public string Timezone { get; set; } = null!;
-
-    public virtual ICollection<Flight> FlightArrivalAirportNavigations { get; set; } = new List<Flight>();
-
-    public virtual ICollection<Flight> FlightDepartureAirportNavigations { get; set; } = new List<Flight>();
+    
+    // [ForeignKey(nameof(FlightEntity.ArrivalAirport))] 
+    public virtual ICollection<FlightEntity> FlightArrivalAirportNavigations { get; set; } = new List<FlightEntity>();
+    // [ForeignKey(nameof(FlightEntity.DepartureAirport))]
+    public virtual ICollection<FlightEntity> FlightDepartureAirportNavigations { get; set; } = new List<FlightEntity>();
 }

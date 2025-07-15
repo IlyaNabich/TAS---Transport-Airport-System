@@ -1,0 +1,22 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.9"
+services:
+  webapi:
+    build:
+      context: "G:\\repos\\TAS - Transport Airport System"
+      dockerfile: "WebApi/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/WebApi.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "webapi:dev"
+    ports: []
+    volumes:
+    - "G:\\repos\\TAS - Transport Airport System\\WebApi:/app:rw"
+    - "G:\\repos\\TAS - Transport Airport System:/src:rw"
+    - "C:\\Users\\ilnai\\.nuget\\packages:/root/.nuget/packages"
+    working_dir: "/app"

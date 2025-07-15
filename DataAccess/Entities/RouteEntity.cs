@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace DataAccess.Entities;
 
-namespace DataAccess.Models;
-
-public partial class Route
+public class RouteEntity
 {
     /// <summary>
     /// Flight number

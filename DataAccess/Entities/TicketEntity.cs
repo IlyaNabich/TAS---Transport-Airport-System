@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DataAccess.Models;
+﻿namespace DataAccess.Entities;
 
 /// <summary>
 /// Tickets
 /// </summary>
-public partial class Ticket
+public class TicketEntity
 {
     /// <summary>
     /// Ticket number
@@ -33,7 +30,7 @@ public partial class Ticket
     /// </summary>
     public string? ContactData { get; set; }
 
-    public virtual Booking BookRefNavigation { get; set; } = null!;
+    public virtual BookingEntity BookRefNavigation { get; set; } = null!;
 
-    public virtual ICollection<TicketFlight> TicketFlights { get; set; } = new List<TicketFlight>();
+    public virtual ICollection<TicketFlightEntity> TicketFlights { get; set; } = new List<TicketFlightEntity>();
 }

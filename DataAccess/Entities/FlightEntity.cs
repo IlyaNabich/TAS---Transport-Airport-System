@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DataAccess.Models;
+﻿namespace DataAccess.Entities;
 
 /// <summary>
 /// Flights
 /// </summary>
-public partial class Flight
+public class FlightEntity
 {
     /// <summary>
     /// Flight ID
@@ -58,11 +55,11 @@ public partial class Flight
     /// </summary>
     public DateTime? ActualArrival { get; set; }
 
-    public virtual AircraftsDatum AircraftCodeNavigation { get; set; } = null!;
+    public virtual AircraftsDatumEntity AircraftCodeNavigation { get; set; } = null!;
 
-    public virtual AirportsDatum ArrivalAirportNavigation { get; set; } = null!;
+    public virtual AirportsDatumEntity ArrivalAirportNavigation { get; set; } = null!;
 
-    public virtual AirportsDatum DepartureAirportNavigation { get; set; } = null!;
+    public virtual AirportsDatumEntity DepartureAirportNavigation { get; set; } = null!;
 
-    public virtual ICollection<TicketFlight> TicketFlights { get; set; } = new List<TicketFlight>();
+    public virtual ICollection<TicketFlightEntity> TicketFlights { get; set; } = new List<TicketFlightEntity>();
 }

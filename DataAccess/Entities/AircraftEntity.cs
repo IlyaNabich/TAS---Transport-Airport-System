@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace DataAccess.Entities;
 
-namespace DataAccess.Models;
-
-public partial class Aircraft
+public class AircraftEntity
 {
-    /// <summary>
-    /// Aircraft code, IATA
-    /// </summary>
     public string? AircraftCode { get; set; }
 
     /// <summary>
     /// Aircraft model
     /// </summary>
+    /// 
     public string? Model { get; set; }
 
     /// <summary>

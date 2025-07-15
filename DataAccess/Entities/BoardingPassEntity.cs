@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DataAccess.Models;
+﻿namespace DataAccess.Entities;
 
 /// <summary>
 /// Boarding passes
 /// </summary>
-public partial class BoardingPass
+public class BoardingPassEntity
 {
     /// <summary>
     /// Ticket number
@@ -28,5 +25,5 @@ public partial class BoardingPass
     /// </summary>
     public string SeatNo { get; set; } = null!;
 
-    public virtual TicketFlight TicketFlight { get; set; } = null!;
+    public TicketFlightEntity TicketFlightEntity { get; set; } = null!;
 }

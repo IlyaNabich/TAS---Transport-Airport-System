@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using NpgsqlTypes;
+﻿using NpgsqlTypes;
 
-namespace DataAccess.Models;
+namespace DataAccess.Entities;
 
-public partial class Airport
+public class AirportEntity
 {
     /// <summary>
     /// Airport code

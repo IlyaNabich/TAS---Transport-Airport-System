@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DataAccess.Models;
+﻿namespace DataAccess.Entities;
 
 /// <summary>
 /// Bookings
 /// </summary>
-public partial class Booking
+public class BookingEntity
 {
     /// <summary>
     /// Booking number
@@ -23,5 +20,5 @@ public partial class Booking
     /// </summary>
     public decimal TotalAmount { get; set; }
 
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+    public virtual ICollection<TicketEntity> Tickets { get; set; } = new List<TicketEntity>();
 }
