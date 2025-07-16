@@ -2,11 +2,11 @@
 
 namespace Core.Abstractions;
 
-public interface IAircraftsRepository
+public interface IAircraftsDatumRepository
 {
-    public Task<List<Aircraft>> Get();
+    public Task<List<AircraftsDatum>> Get();
 
-    public Task<string?> Create(Aircraft aircraft);
+    public Task<string?> Create(AircraftsDatum aircraftsDatum);
     
     public Task<string> Update(string aircraftCode, string model, int range);
     

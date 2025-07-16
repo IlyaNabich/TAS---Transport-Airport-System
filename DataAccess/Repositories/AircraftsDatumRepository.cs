@@ -5,37 +5,37 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories;
 
-public class AircraftsRepository(DbContext context) : IAircraftsRepository
+public class AircraftsDatumRepository(DbContext context) : IAircraftsDatumRepository
 {
     private readonly DbContext _context = context;
 
-    public async Task<List<Aircraft>> Get()
+    public async Task<List<AircraftsDatum>> Get()
     {
-        var aircraftEntities = await _context.Aircrafts
+        var aircraftsDatumEntities = await _context.AircraftsData
             .AsNoTracking()
             .ToListAsync();
-        var aircrafts = aircraftEntities
-            .Select(b => Aircraft.CreateAircraft(b.AircraftCode, b.Model, b.Range).aircraft)
+        var aircraftsDatum = aircraftsDatumEntities
+            .Select(b => AircraftsDatum.CreateAircrafts(b.AircraftCode, b.Model, b.Range).aircraftsDatum)
             .ToList();
-        return aircrafts;
+        return aircraftsDatum;
     }
 
-    public async Task<string?> Create(Aircraft aircraft)
+    public async Task<string?> Create(AircraftsDatum aircraftsDatum)
     {
-        var aircraftEntity = new AircraftEntity
+        var aircraftsDatumEntity = new AircraftsDatumEntity
         {
-            AircraftCode = aircraft.AircraftCode,
-            Model = aircraft.Model,
-            Range = aircraft.Range,
+            AircraftCode = aircraftsDatum.AircraftCode,
+            Model = aircraftsDatum.Model,
+            Range = aircraftsDatum.Range,
         };
-        await _context.Aircrafts.AddAsync(aircraftEntity);
+        await _context.AircraftsData.AddAsync(aircraftsDatumEntity);
         await _context.SaveChangesAsync();
-        return aircraftEntity.AircraftCode;
+        return aircraftsDatumEntity.AircraftCode;
     }
 
     public async Task<string> Update(string aircraftCode, string model, int range)
     {
-        await _context.Aircrafts
+        await _context.AircraftsData
             .Where(x => x.AircraftCode == aircraftCode)
             .ExecuteUpdateAsync(x => x
                 .SetProperty(x => x.AircraftCode, x=> aircraftCode)
@@ -47,7 +47,7 @@ public class AircraftsRepository(DbContext context) : IAircraftsRepository
 
     public async Task<string> Delete(string aircraftCode)
     {
-        await _context.Aircrafts
+        await _context.AircraftsData
             .Where(x => x.AircraftCode == aircraftCode)
             .ExecuteDeleteAsync();
         return aircraftCode;
