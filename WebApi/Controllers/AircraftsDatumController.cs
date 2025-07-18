@@ -23,13 +23,14 @@ public class AircraftsDatumController(IAircraftsDatumService aircraftsDatumServi
         
         return Ok(response);
     }
-
+    
     [HttpPost]
     public async Task<ActionResult<List<AircraftsRequest>>> AddAircraft([FromBody] AircraftsRequest request)
     {
+        var model = $"{{\"en\": \"{request.ModelEn}\", \"ru\": \"{request.ModelRu}\"}}";
         var (aircraft, error) = AircraftsDatum.CreateAircrafts(
             request.AircraftCode, 
-            request.Model, 
+            model, 
             request.Range);
         
         if (!string.IsNullOrEmpty(error))
@@ -43,17 +44,19 @@ public class AircraftsDatumController(IAircraftsDatumService aircraftsDatumServi
     }
 
     [HttpDelete]
-    public async Task<ActionResult> DeleteAircraft([FromBody] AircraftsRequest request)
+    public async Task<ActionResult> DeleteAircraft(string aircraftCode)
     {
-        var aircrafts = await _aircraftsDatumService.DeleteAircrafts(request.AircraftCode);
+        var aircrafts = await _aircraftsDatumService.DeleteAircrafts(aircraftCode);
         
         return Ok(aircrafts);
     }
 
     [HttpPut]
-    public async Task<ActionResult> UpdateAircraft([FromBody] AircraftsRequest request)
+    public async Task<ActionResult> UpdateAircraft([FromBody] AircraftsRequest request, string aircraftCode)
     {
-        var aircrafts = await _aircraftsDatumService.UpdateAircrafts(request.AircraftCode, request.Model, request.Range);
+        var model = $"{{\"en\": \"{request.ModelEn}\", \"ru\": \"{request.ModelRu}\"}}";
+        
+        var aircrafts = await _aircraftsDatumService.UpdateAircrafts(aircraftCode, request.AircraftCode, model, request.Range);
         
         return Ok(aircrafts);
     }

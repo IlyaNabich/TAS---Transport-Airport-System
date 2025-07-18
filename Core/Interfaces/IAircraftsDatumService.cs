@@ -5,7 +5,11 @@ namespace Core.Interfaces;
 public interface IAircraftsDatumService
 {
     Task<List<AircraftsDatum>> GetAllAircrafts();
+    
     Task<string?> CreateAircrafts(AircraftsDatum aircraftsDatum);
-    Task<string> UpdateAircrafts(string aircraftCode, string model, int range);
-    Task<string> DeleteAircrafts(string aircraftCode);
+    
+    Task<string?> UpdateAircrafts(string aircraftCode1,string aircraftCode, string model, int range);
+    
+    Task<string?> DeleteAircrafts(string aircraftCode);
+    
 }

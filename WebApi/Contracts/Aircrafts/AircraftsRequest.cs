@@ -2,5 +2,6 @@
 
 public record AircraftsRequest(
     string AircraftCode,
-    string Model,
+    string ModelEn,
+    string ModelRu,
     int Range);

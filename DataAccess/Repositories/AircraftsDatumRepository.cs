@@ -33,10 +33,10 @@ public class AircraftsDatumRepository(DbContext context) : IAircraftsDatumReposi
         return aircraftsDatumEntity.AircraftCode;
     }
 
-    public async Task<string> Update(string aircraftCode, string model, int range)
+    public async Task<string> Update(string aircraftCode1 ,string aircraftCode, string model, int range)
     {
         await _context.AircraftsData
-            .Where(x => x.AircraftCode == aircraftCode)
+            .Where(x => x.AircraftCode == aircraftCode1)
             .ExecuteUpdateAsync(x => x
                 .SetProperty(x => x.AircraftCode, x=> aircraftCode)
                 .SetProperty(x => x.Model, x => model)

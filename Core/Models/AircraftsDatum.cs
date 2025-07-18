@@ -3,7 +3,7 @@
 /// <summary>
 /// Aircrafts (internal data)
 /// </summary>
-public partial class AircraftsDatum
+public class AircraftsDatum
 {
     // ReSharper disable once InconsistentNaming
     private const int MAX_AIRCRAFT_CODE_LENGTH = 3;

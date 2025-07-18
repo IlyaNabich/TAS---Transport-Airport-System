@@ -18,9 +18,9 @@ public class AircraftsDatumService(IAircraftsDatumRepository aircraftsDatumRepos
         return await _aircraftsDatumRepository.Create(aircraftsDatum);
     }
 
-    public async Task<string> UpdateAircrafts(string aircraftCode, string model, int range)
+    public async Task<string> UpdateAircrafts(string aircraftCode1,string aircraftCode, string model, int range)
     {
-        return await _aircraftsDatumRepository.Update(aircraftCode, model, range);
+        return await _aircraftsDatumRepository.Update(aircraftCode1,aircraftCode, model, range);
     }
 
     public async Task<string> DeleteAircrafts(string aircraftCode)
