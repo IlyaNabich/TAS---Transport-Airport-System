@@ -13,15 +13,17 @@ public class AirportsDatumController(IAirportsDatumService airportsDatumService)
     private readonly IAirportsDatumService _airportsDatumService = airportsDatumService;
     
     [HttpGet]
-    public async Task<ActionResult<AirportsDatum>> GetAirports()
+    public async Task<ActionResult<AirportsResponse>> GetAirports()
     {
         var airport = await _airportsDatumService.GetAllAirports();
         
-        return Ok(airport);
+        var response = airport.Select(x => new AirportsResponse(x.AirportCode, x.AirportName, x.City, x.Coordinates, x.Timezone));
+        
+        return Ok(response);
     }
 
     [HttpPost]
-    public async Task<ActionResult<AirportsDatum>> CreateAirport([FromBody] AirportsRequest request)
+    public async Task<ActionResult<AirportsRequest>> CreateAirport([FromBody] AirportsRequest request)
     {
         var (airport, error) = AirportsDatum.CreateAirports(
             request.AirportCode,
@@ -42,18 +44,18 @@ public class AirportsDatumController(IAirportsDatumService airportsDatumService)
     }
 
     [HttpPut]
-    public async Task<ActionResult<AirportsDatum>> UpdateAirport([FromBody] AirportsRequest request, string airportCode1)
+    public async Task<ActionResult> UpdateAirport([FromBody] AirportsRequest request, string airportCode1)
     {
-        await _airportsDatumService.UpdateAirports(airportCode1, request.AirportCode, request.AirportName, request.City, request.Coordinates, request.Timezone);
+        var airports = await _airportsDatumService.UpdateAirports(airportCode1, request.AirportCode, request.AirportName, request.City, request.Coordinates, request.Timezone);
         
-        return Ok();
+        return Ok(airports);
     }
 
     [HttpDelete]
-    public async Task<ActionResult<AirportsDatum>> DeleteAirport(string airportCode)
+    public async Task<ActionResult> DeleteAirport(string airportCode)
     {
-        await _airportsDatumService.DeleteAirports(airportCode);
+        var airports = await _airportsDatumService.DeleteAirports(airportCode);
         
-        return Ok();
+        return Ok(airports);
     }
 }

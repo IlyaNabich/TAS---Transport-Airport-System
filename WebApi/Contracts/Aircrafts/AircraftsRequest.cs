@@ -1,4 +1,4 @@
-﻿namespace WebApi.Contracts;
+﻿namespace WebApi.Contracts.Aircrafts;
 
 public record AircraftsRequest(
     string AircraftCode,

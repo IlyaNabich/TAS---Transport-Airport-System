@@ -4,6 +4,7 @@ using Core.Models;
 using DataAccess.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Contracts;
+using WebApi.Contracts.Aircrafts;
 
 namespace WebApi.Controllers;
 
@@ -43,14 +44,6 @@ public class AircraftsDatumController(IAircraftsDatumService aircraftsDatumServi
         return Ok(aircrafts);
     }
 
-    [HttpDelete]
-    public async Task<ActionResult> DeleteAircraft(string aircraftCode)
-    {
-        var aircrafts = await _aircraftsDatumService.DeleteAircrafts(aircraftCode);
-        
-        return Ok(aircrafts);
-    }
-
     [HttpPut]
     public async Task<ActionResult> UpdateAircraft([FromBody] AircraftsRequest request, string aircraftCode)
     {
@@ -60,4 +53,13 @@ public class AircraftsDatumController(IAircraftsDatumService aircraftsDatumServi
         
         return Ok(aircrafts);
     }
+    
+    [HttpDelete]
+    public async Task<ActionResult> DeleteAircraft(string aircraftCode)
+    {
+        var aircrafts = await _aircraftsDatumService.DeleteAircrafts(aircraftCode);
+        
+        return Ok(aircrafts);
+    }
+
 }
